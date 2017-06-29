@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 require('./index.css');
+var PropTypes = require('prop-types');
 
 // state
 // lifecycle event
@@ -38,6 +39,13 @@ class Users extends React.Component {
     )
   }
 }
+Users.propTypes = {
+    list: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        friend: PropTypes.bool.isRequired
+    }))
+}
+
 
 ReactDOM.render(
   <Users list={[
